@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Bulky.Models;
 
 namespace Bulky.DataAccess.Data.Repository.IRepository
 {
-    public interface ICategoryRepository : IRepository<Category>
+    public interface IUnitOfWork
     {
-        void update(Category obj);
-      
+        ICategoryRepository Category { get; }
+        void save();
     }
 }
