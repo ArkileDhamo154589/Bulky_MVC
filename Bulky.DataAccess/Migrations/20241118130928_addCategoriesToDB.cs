@@ -7,7 +7,7 @@
 namespace Bulky.DataAccess.Migrations
 {
     /// <inheritdoc />
-    public partial class addCategoriesToDb : Migration
+    public partial class addCategoriesToDB : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -39,11 +39,18 @@ namespace Bulky.DataAccess.Migrations
                     ListPrice = table.Column<double>(type: "float", nullable: false),
                     Price = table.Column<double>(type: "float", nullable: false),
                     Price50 = table.Column<double>(type: "float", nullable: false),
-                    Price100 = table.Column<double>(type: "float", nullable: false)
+                    Price100 = table.Column<double>(type: "float", nullable: false),
+                    CategoryId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Products", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Products_Categories_CategoryId",
+                        column: x => x.CategoryId,
+                        principalTable: "Categories",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.InsertData(
@@ -56,28 +63,20 @@ namespace Bulky.DataAccess.Migrations
                     { 3, 3, "History" }
                 });
 
-            migrationBuilder.InsertData(
+            migrationBuilder.CreateIndex(
+                name: "IX_Products_CategoryId",
                 table: "Products",
-                columns: new[] { "Id", "Author", "Description", "ISBN", "ListPrice", "Price", "Price100", "Price50", "Title" },
-                values: new object[,]
-                {
-                    { 1, "Billy Spark", "Description added here", "SWD9999001", 99.0, 90.0, 80.0, 85.0, "Fortune of time" },
-                    { 2, "Billy Spark", "Description added here", "SWD9999001", 99.0, 90.0, 80.0, 85.0, "Fortune of time" },
-                    { 3, "Achilleas Dhamo", "Learn everything about js from beginner to pro", "SWD9999002", 99.0, 90.0, 80.0, 85.0, "Why you need to learn JS" },
-                    { 4, "Achilleas Dhamo", "Learn everything about .NET from beginner to pro", "SWD9999002", 88.0, 85.0, 70.0, 80.0, "Why you need to learn .NET" },
-                    { 5, "Achilleas Dhamo", "Learn everything about react from beginner to pro", "SWD9999002", 88.0, 85.0, 70.0, 80.0, "Why you need to learn React.js" },
-                    { 6, "Achilleas Dhamo", "Learn everything about html css  from beginner to pro", "SWD9999002", 88.0, 85.0, 70.0, 80.0, "Why you need to learn html , css" }
-                });
+                column: "CategoryId");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Categories");
+                name: "Products");
 
             migrationBuilder.DropTable(
-                name: "Products");
+                name: "Categories");
         }
     }
 }

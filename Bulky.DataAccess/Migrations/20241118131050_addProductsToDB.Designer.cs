@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Bulky.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241118110257_addCategoriesToDb")]
-    partial class addCategoriesToDb
+    [Migration("20241118131050_addProductsToDB")]
+    partial class addProductsToDB
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -77,6 +77,9 @@ namespace Bulky.DataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -103,6 +106,8 @@ namespace Bulky.DataAccess.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CategoryId");
+
                     b.ToTable("Products");
 
                     b.HasData(
@@ -110,74 +115,91 @@ namespace Bulky.DataAccess.Migrations
                         {
                             Id = 1,
                             Author = "Billy Spark",
-                            Description = "Description added here",
+                            CategoryId = 1,
+                            Description = "Praesent vitae sodales libero. Praesent molestie orci augue, vitae euismod velit sollicitudin ac. Praesent vestibulum facilisis nibh ut ultricies.\r\n\r\nNunc malesuada viverra ipsum sit amet tincidunt. ",
                             ISBN = "SWD9999001",
                             ListPrice = 99.0,
                             Price = 90.0,
                             Price100 = 80.0,
                             Price50 = 85.0,
-                            Title = "Fortune of time"
+                            Title = "Fortune of Time"
                         },
                         new
                         {
                             Id = 2,
-                            Author = "Billy Spark",
-                            Description = "Description added here",
-                            ISBN = "SWD9999001",
-                            ListPrice = 99.0,
-                            Price = 90.0,
-                            Price100 = 80.0,
-                            Price50 = 85.0,
-                            Title = "Fortune of time"
+                            Author = "Nancy Hoover",
+                            CategoryId = 1,
+                            Description = "Praesent vitae sodales libero. Praesent molestie orci augue, vitae euismod velit sollicitudin ac. Praesent vestibulum facilisis nibh ut ultricies.\r\n\r\nNunc malesuada viverra ipsum sit amet tincidunt. ",
+                            ISBN = "CAW777777701",
+                            ListPrice = 40.0,
+                            Price = 30.0,
+                            Price100 = 20.0,
+                            Price50 = 25.0,
+                            Title = "Dark Skies"
                         },
                         new
                         {
                             Id = 3,
-                            Author = "Achilleas Dhamo",
-                            Description = "Learn everything about js from beginner to pro",
-                            ISBN = "SWD9999002",
-                            ListPrice = 99.0,
-                            Price = 90.0,
-                            Price100 = 80.0,
-                            Price50 = 85.0,
-                            Title = "Why you need to learn JS"
+                            Author = "Julian Button",
+                            CategoryId = 1,
+                            Description = "Praesent vitae sodales libero. Praesent molestie orci augue, vitae euismod velit sollicitudin ac. Praesent vestibulum facilisis nibh ut ultricies.\r\n\r\nNunc malesuada viverra ipsum sit amet tincidunt. ",
+                            ISBN = "RITO5555501",
+                            ListPrice = 55.0,
+                            Price = 50.0,
+                            Price100 = 35.0,
+                            Price50 = 40.0,
+                            Title = "Vanish in the Sunset"
                         },
                         new
                         {
                             Id = 4,
-                            Author = "Achilleas Dhamo",
-                            Description = "Learn everything about .NET from beginner to pro",
-                            ISBN = "SWD9999002",
-                            ListPrice = 88.0,
-                            Price = 85.0,
-                            Price100 = 70.0,
-                            Price50 = 80.0,
-                            Title = "Why you need to learn .NET"
+                            Author = "Abby Muscles",
+                            CategoryId = 2,
+                            Description = "Praesent vitae sodales libero. Praesent molestie orci augue, vitae euismod velit sollicitudin ac. Praesent vestibulum facilisis nibh ut ultricies.\r\n\r\nNunc malesuada viverra ipsum sit amet tincidunt. ",
+                            ISBN = "WS3333333301",
+                            ListPrice = 70.0,
+                            Price = 65.0,
+                            Price100 = 55.0,
+                            Price50 = 60.0,
+                            Title = "Cotton Candy"
                         },
                         new
                         {
                             Id = 5,
-                            Author = "Achilleas Dhamo",
-                            Description = "Learn everything about react from beginner to pro",
-                            ISBN = "SWD9999002",
-                            ListPrice = 88.0,
-                            Price = 85.0,
-                            Price100 = 70.0,
-                            Price50 = 80.0,
-                            Title = "Why you need to learn React.js"
+                            Author = "Ron Parker",
+                            CategoryId = 2,
+                            Description = "Praesent vitae sodales libero. Praesent molestie orci augue, vitae euismod velit sollicitudin ac. Praesent vestibulum facilisis nibh ut ultricies.\r\n\r\nNunc malesuada viverra ipsum sit amet tincidunt. ",
+                            ISBN = "SOTJ1111111101",
+                            ListPrice = 30.0,
+                            Price = 27.0,
+                            Price100 = 20.0,
+                            Price50 = 25.0,
+                            Title = "Rock in the Ocean"
                         },
                         new
                         {
                             Id = 6,
-                            Author = "Achilleas Dhamo",
-                            Description = "Learn everything about html css  from beginner to pro",
-                            ISBN = "SWD9999002",
-                            ListPrice = 88.0,
-                            Price = 85.0,
-                            Price100 = 70.0,
-                            Price50 = 80.0,
-                            Title = "Why you need to learn html , css"
+                            Author = "Laura Phantom",
+                            CategoryId = 3,
+                            Description = "Praesent vitae sodales libero. Praesent molestie orci augue, vitae euismod velit sollicitudin ac. Praesent vestibulum facilisis nibh ut ultricies.\r\n\r\nNunc malesuada viverra ipsum sit amet tincidunt. ",
+                            ISBN = "FOT000000001",
+                            ListPrice = 25.0,
+                            Price = 23.0,
+                            Price100 = 20.0,
+                            Price50 = 22.0,
+                            Title = "Leaves and Wonders"
                         });
+                });
+
+            modelBuilder.Entity("Bulky.Models.Product", b =>
+                {
+                    b.HasOne("Bulky.Models.Category", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
                 });
 #pragma warning restore 612, 618
         }
