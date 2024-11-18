@@ -35,7 +35,7 @@ namespace Bulky.DataAcess.Data
                 },
                 new Product
                 {
-                    Id = 1,
+                    Id = 2,
                     Title = "Fortune of time",
                     Author = "Billy Spark",
                     Description = "Description added here",
@@ -47,7 +47,7 @@ namespace Bulky.DataAcess.Data
                     },
                 new Product
                 {
-                    Id = 2,
+                    Id = 3,
                     Title = "Why you need to learn JS",
                     Author = "Achilleas Dhamo",
                     Description = "Learn everything about js from beginner to pro",
@@ -59,7 +59,7 @@ namespace Bulky.DataAcess.Data
                 },
                 new Product
                 {
-                    Id = 3,
+                    Id = 4,
                     Title = "Why you need to learn .NET",
                     Author = "Achilleas Dhamo",
                     Description = "Learn everything about .NET from beginner to pro",
@@ -71,7 +71,7 @@ namespace Bulky.DataAcess.Data
                 },
                 new Product
                 {
-                    Id = 4,
+                    Id = 5,
                     Title = "Why you need to learn React.js",
                     Author = "Achilleas Dhamo",
                     Description = "Learn everything about react from beginner to pro",
@@ -83,7 +83,7 @@ namespace Bulky.DataAcess.Data
                 },
                 new Product
                 {
-                    Id = 5,
+                    Id = 6,
                     Title = "Why you need to learn html , css",
                     Author = "Achilleas Dhamo",
                     Description = "Learn everything about html css  from beginner to pro",
