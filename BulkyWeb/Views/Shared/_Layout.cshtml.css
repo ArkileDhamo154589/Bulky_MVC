@@ -7,10 +7,18 @@ a.navbar-brand {
   word-break: break-all;
 }
 
-a {
+/*a {
   color: #0077cc;
+}*/
+nav.navbar.navbar-expand-sm.navbar-toggleable-sm.navbar-dark.bg-primary.border-bottom.box-shadow.mb-3 {
+    background: linear-gradient(90deg, rgba(36, 18, 0, 1) 6%, rgba(44, 9, 121, 0.8044467787114846) 57%);
 }
 
+
+footer.border-top.footer.bg-primary.text-muted {
+    background: linear-gradient(90deg, rgba(36, 18, 0, 1) 6%, rgba(44, 9, 121, 0.8044467787114846) 57%);
+    color: #fff !important;
+}
 .btn-primary {
   color: #fff;
   background-color: #1b6ec2;
