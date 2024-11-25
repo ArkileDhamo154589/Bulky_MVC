@@ -1,4 +1,4 @@
-using Bulky.DataAccess.Data.Repository.IRepository;
+﻿using Bulky.DataAccess.Data.Repository.IRepository;
 using Bulky.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
@@ -23,9 +23,10 @@ namespace BulkyWeb.Areas.Customer.Controllers
         }
         public IActionResult Details(int productId)
         {
-            Product product = _unitOfWork.Product.Get(u=>u.Id == productId, includeProperties: "Category");
+            Product product = _unitOfWork.Product.Get(u => u.Id == productId, includeProperties: "Category");
             return View(product);
         }
+
 
         public IActionResult Privacy()
         {
